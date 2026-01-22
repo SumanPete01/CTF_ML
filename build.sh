@@ -1,3 +1,3 @@
 #!/bin/bash
-chmod +x checker.exe
+chmod +x checker
 pip install -r requirements.txt
