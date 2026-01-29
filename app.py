@@ -11,8 +11,11 @@ def get_parameter(param_type, index):
         return jsonify({'error': 'Invalid type. Use: bias, weight, or activation'}), 400
     
     try:
+        # Map 'activation' to 'act' for the checker command
+        checker_command = 'act' if param_type == 'activation' else param_type
+        
         result = subprocess.run(
-            ['./checker', param_type, str(index)],
+            ['./checker', checker_command, str(index)],
             capture_output=True,
             text=True,
             timeout=10
